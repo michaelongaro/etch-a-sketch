@@ -6,7 +6,7 @@ window.onload = function() {
     /* WHY can this not see #cell */
     let gridList = document.querySelectorAll(".cell");
     let count = 0;
-    console.log(gridList.length);
+    /*console.log(gridList.length);*/
     for (count = 0; count < gridList.length; count++) {
         gridList[count].addEventListener("mouseover", leaveTrail);
         gridList[count].addEventListener("mouseout", clearTrail);
@@ -63,10 +63,15 @@ function leaveTrail() {
     /* ^^^^^^ */
     /* ultimately, you would want each cell to have a unique class/id to be able to target a specific one */
     /*validCell.removeAttribute("id");*/
-    let gridList = document.querySelectorAll(".cell");
+    
+    
+    /* need to make this be able to accept arbitrary number of "#cell[number]" */
+    /* BIGGG make them all have same class, then target div .[class] and have that be in place of #cell currently */
+    let gridList = document.querySelectorAll("#cell");
     let leaveCount = 0;
+    console.log(gridList.length);
     for (leaveCount = 1; leaveCount < gridList.length+1; leaveCount++) {
-        console.log("cell" + leaveCount.toString());
+        console.log(leaveCount);
         console.log("shows up!");
         if (document.getElementById("cell" + leaveCount.toString())[leaveCount]) {
             document.getElementById("cell" + leaveCount.toString())[leaveCount].style["background-color"] = "#444";
