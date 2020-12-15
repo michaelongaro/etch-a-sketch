@@ -4,7 +4,7 @@
     grid-gap: 10px;
 }
 
-#cell {
+.cell {
     background-color: #FFFFFF;
     color: #fff;
     border-radius: 5px;
@@ -13,7 +13,7 @@
     padding: 20px;
 }
 
-#darkcell {
+.darkcell {
     background-color: #444;
     color: #fff;
     border-radius: 5px;
