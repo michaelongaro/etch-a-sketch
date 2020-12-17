@@ -1,21 +1,25 @@
 #main-grid-contain {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
+    
     grid-gap: 10px;
 }
 
-.cell {
+button {
+    display: block;
+    margin-top: 50px;
+}
+
+#main-grid-contain > div {
+    color: black;
     background-color: #FFFFFF;
     color: #fff;
     border-radius: 5px;
     border-color: black;
     border-style: solid;
-    padding: 20px;
+    padding: 40px;
 }
 
-.darkcell {
+
+#main-grid-contain > div.darkcell {
     background-color: #444;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px;
-}
+}   
