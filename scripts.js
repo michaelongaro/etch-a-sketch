@@ -6,27 +6,44 @@ let newSize;
 let currentSelectedID;
 let isntInitialGrid = false;
 let updatedCellWidth = 240;
+let notValidWidthInput = false;
 
 
 window.onload = function() { 
     startingGrid(4);
+    newSize = 16;
+    updatedCellWidth = 960 / 4;
     document.getElementById("main-grid-contain").style.gridTemplateColumns = `repeat(4, ${updatedCellWidth.toString()}px)`;
     console.log(`${updatedCellWidth.toString()}px`);     
-    newSize = 16;
     cellArr = new Array(newSize).fill(0);
     
     /* going to need to figure out how to select ALL divs (aka use #main-grid-contain > div) here to 
         scale heights as well. maybe need jquery here too? */
+    /* need to make this fit 960 by 960 px no matter what */
+    
+    $("#main-grid-contain").children().css("height", `${(updatedCellWidth).toString()}px`);
+    console.log(`${(updatedCellWidth).toString()}px`);
     
     
     $("#change-grid-size") 
-        .click(function() {
+        .click(function() { 
             resetGrid();
-            newSize = parseInt(prompt("Please enter desired number of cells", "4"));
+            notValidWidthInput = false;
+            while (!notValidWidthInput) {
+                newSize = parseInt(prompt("Please enter desired number of cells per row", "4"));
+                if (0 >= newSize || 100 <= newSize) {
+                    alert("Please input a valid number (between 0-100)");
+                }
+                else {
+                    notValidWidthInput = true;
+                }
+            }
             isntInitialGrid = true;
+            updatedCellWidth = 960 / newSize;
             startingGrid(newSize);
             cellArr = new Array(newSize ** 2).fill(0);
-            document.getElementById("main-grid-contain").style.gridTemplateColumns = `repeat(${newSize} , ${(updatedCellWidth/newSize).toString()}px)`;
+            document.getElementById("main-grid-contain").style.gridTemplateColumns = `repeat(${newSize} , ${(updatedCellWidth).toString()}px)`;
+            $("#main-grid-contain").children().css("height", `${(updatedCellWidth).toString()}px`);
     })
     
     $("#randomize-colors")
@@ -86,10 +103,10 @@ window.onload = function() {
                     $(this).css("background-color", "#FFFFFF");
                 }
             })
-    
-            
-    
+
 }
+
+
 
 
 function applyRandomColor() {

@@ -1,23 +1,30 @@
+body {
+    text-align: center;
+}
+
 #main-grid-contain {
     display: grid;
-    
-    grid-gap: 10px;
+    justify-content: center;
+    grid-gap:0px;
+    margin-bottom: 35px;
 }
 
 button {
-    display: block;
-    margin-top: 50px;
+    display: inline-block;
+    margin: 20px;
 }
 
 #main-grid-contain > div {
     color: black;
     background-color: #FFFFFF;
     color: #fff;
-    border-radius: 5px;
+    
+    border-width: 1px;
     border-color: black;
     border-style: solid;
-    padding: 10px;
+    
 }
+
 
 
 #main-grid-contain > div.darkcell {
