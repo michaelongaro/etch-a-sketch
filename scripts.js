@@ -31,7 +31,7 @@ window.onload = function() {
             notValidWidthInput = false;
             while (!notValidWidthInput) {
                 newSize = parseInt(prompt("Please enter desired number of cells per row", "4"));
-                if (0 >= newSize || 100 <= newSize) {
+                if (0 >= newSize || 100 < newSize) {
                     alert("Please input a valid number (between 0-100)");
                 }
                 else {
